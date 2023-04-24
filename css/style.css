@@ -1,0 +1,22 @@
+body {
+  margin: o;
+  font-family: arial;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(120px, 200px) minmax(240px, 1fr) 80px;
+  grid-template-rows: auto 1fr auto auto;
+  min-height: 100vh;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.logo {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-color: rgb(151, 85, 85);
+  height: 100px;
+}/*# sourceMappingURL=style.css.map */
