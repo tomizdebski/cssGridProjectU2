@@ -7,6 +7,23 @@ body {
     display: grid;
     grid-template-columns: minmax(120px, 200px) minmax(240px, 1fr) 80px;
     grid-template-rows: auto 1fr auto auto;
+    grid-template-areas:
+    'logotype search hamburger'
+    'images images images'
+    'contact contact contact'
+    'footer footer footer'; 
+    @media (min-width: 1024px) {
+        grid-template-columns: minmax(300px, auto) 1fr;
+        grid-template-rows: auto auto auto 1fr auto auto;
+        grid-template-areas:
+        'logotype images'
+        'menu images'
+        'search images'
+        '. images'
+        'contact images'
+        'footer footer'; 
+
+    }
 
     //kontener
     min-height: 100vh; //wysokosc strony
@@ -21,5 +38,66 @@ body {
     grid-row-end: 2;
     background-color: rgb(151,85, 85);
     height: 100px;
+    @media (min-width: 1024px) {
+        grid-area: logotype;
+    }
 
+
+}
+
+.search {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    background-color: rgb(30, 28, 133);
+    @media (min-width: 1024px) {
+        grid-area: search;
+        min-height: 80px;
+    }
+}
+
+.menu {
+    grid-column: -1/-2;
+    grid-row: 1;
+    background-color: #9ea145;
+    @media (min-width: 1024px) {
+        grid-area: menu;
+        min-height: 300px;
+    }
+
+}    
+
+.gallery {
+    // grid-column: 1/-1; // znaczy zajmuj caly wiersz
+    // grid-row:2;
+    grid-area: images;
+    background-color:rgb(28, 133, 107);
+    // kontener
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));  
+    gap: 15px;
+    padding: 120px 15px 15px;
+    position: relative;
+    img {
+        width: 100%;
+    }
+    h1 {
+        position: absolute; // wywala z siatki grida
+        top: 30px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(0,0,0,0.2);
+    }
+}
+
+.contact {
+    //grid-area: 3/1/4/4;
+    grid-area: contact;
+    background-color: #4f8a8971;
+    height: 60px;
+}
+
+.footer {
+    background-color: #c75208;
+    grid-area: footer;
 }
